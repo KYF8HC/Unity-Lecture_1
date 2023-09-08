@@ -11,7 +11,11 @@ public class MoveItems : MonoBehaviour
         public Quaternion defaultRotation;
         public Vector3 defaultScale;
     }
-
+    
+    [SerializeField] private float minPosition = 0f;
+    [SerializeField] private float maxPosition = 10f;
+    [SerializeField] private float minScale = 4f;
+    [SerializeField] private float maxScale = 4f; 
     private Dictionary<GameObject, TransformValues> defaultTransforms;
     private List<Transform> allChildren;
     private List<Transform> removeFromList;
@@ -67,10 +71,10 @@ public class MoveItems : MonoBehaviour
         {
             foreach (var child in allChildren)
             {
-                var targetPosition = new Vector3(Random.Range(0, 10), Random.Range(0, 4), Random.Range(0, 10));
+                var targetPosition = new Vector3(Random.Range(minPosition, maxPosition), Random.Range(minPosition, maxPosition), Random.Range(minPosition, maxPosition));
                 var targetRotation =
                     Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
-                var targetScale = new Vector3(Random.Range(0f, 4f), Random.Range(0f, 4f), Random.Range(0f, 4f));
+                var targetScale = new Vector3(Random.Range(minScale, maxScale), Random.Range(minScale, maxScale), Random.Range(minScale, maxScale));
                 StartCoroutine(SwapTransforms(child, child.position, child.rotation, child.localScale, targetPosition,
                     targetRotation, targetScale));
             }
@@ -92,10 +96,10 @@ public class MoveItems : MonoBehaviour
         Vector3 startScale, Vector3 targetPosition, Quaternion targetRotation,
         Vector3 targetScale)
     {
-        float startTime = Time.time;
+        var startTime = Time.time;
         while (Time.time - startTime < animationDuration)
         {
-            float t = (Time.time - startTime) / animationDuration;
+            var t = (Time.time - startTime) / animationDuration;
             childTransform.position = Vector3.Lerp(startPosition, targetPosition, t);
             childTransform.rotation = Quaternion.Lerp(startRotation, targetRotation, t);
             childTransform.localScale = Vector3.Lerp(startScale, targetScale, t);
