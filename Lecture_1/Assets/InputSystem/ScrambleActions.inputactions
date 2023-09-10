@@ -1,0 +1,54 @@
+{
+    "name": "ScrambleActions",
+    "maps": [
+        {
+            "name": "ScrambleAction",
+            "id": "90d9e624-66ef-4db8-ae84-ab61557d3421",
+            "actions": [
+                {
+                    "name": "Scramble",
+                    "type": "Button",
+                    "id": "ab54276f-81ed-49c4-960c-1c9575066e72",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ReturnToOrigin",
+                    "type": "Button",
+                    "id": "67095ec4-59cb-4627-814c-68ab5e615dea",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "44f4259e-661a-418b-8657-c7f66e6d8f64",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Scramble",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5a2a92ba-7776-45b9-aaa8-57b9aa1b740a",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ReturnToOrigin",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
